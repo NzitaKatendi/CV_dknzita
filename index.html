@@ -919,7 +919,7 @@
             email: "diatezilua.n@gmail.com",
             phone: "+34 602 012 815",
             linkedin: "https://www.linkedin.com/in/diatezilua-katendi-nzita-412640210",
-            github: "https://github.com/NzitaKatendi",
+            github: "https://github.com/dknzita",
           },
           skills: [
             { name: "Python (Data Science)", level: 95 },
@@ -943,6 +943,12 @@
             { name: "Mathematical Teletraffic Theory", org: "Stepik", date: "28/10/2024", url: "./certificate/stepik-certificate-Mathematical Teletraffic Theory.pdf" },
             { name: "SQL for Data Analysis", org: "Stepik", date: "02/11/2024", url: "./certificate/stepik-certificate-SQL.pdf" },
             { name: "Web Development Fundamentals", org: "Stepik", date: "01/11/2024", url: "./certificate/stepik-certificate-Веб-разработка для начинающих.pdf" },
+            { name: "Sales Forecasting", org: "Professional Certification", date: "2024", url: "./certificate/Certicate-Sales Forecasting.pdf" },
+            { name: "Effective Leadership", org: "Professional Certification", date: "2024", url: "./certificate/Certificate -  Effective Leadership.pdf" },
+            { name: "AI for Beginners", org: "Professional Certification", date: "2024", url: "./certificate/Certificate- AI for Beginners.pdf" },
+            { name: "Inventory Management", org: "Professional Certification", date: "2024", url: "./certificate/Certificate- Inventory Management.pdf" },
+            { name: "IT for Business Success", org: "Professional Certification", date: "2024", url: "./certificate/Certificate- IT for Business Success.pdf" },
+            { name: "AI for Business Professionals", org: "Professional Certification", date: "2024", url: "./certificate/Certificate-AI for Business Professionals.pdf" },
           ],
           certsText: [
             "Python for Data Science — Santander Open Academy — 28/07/2025",
@@ -952,6 +958,12 @@
             "Mathematical Teletraffic Theory — Stepik — 28/10/2024",
             "SQL for Data Analysis — Stepik — 02/11/2024",
             "Web Development Fundamentals — Stepik — 01/11/2024",
+            "Sales Forecasting — Professional Certification — 2024",
+            "Effective Leadership — Professional Certification — 2024",
+            "AI for Beginners — Professional Certification — 2024",
+            "Inventory Management — Professional Certification — 2024",
+            "IT for Business Success — Professional Certification — 2024",
+            "AI for Business Professionals — Professional Certification — 2024",
           ],
         };
 
@@ -1065,20 +1077,14 @@
                          style={{cursor: 'pointer', position: 'relative'}}>
                       <div className="achievement-icon">🏆</div>
                       <h4>{cert.name}</h4>
-                      <p>{cert.org} — {cert.date}</p>
+                      <p>{cert.org}</p>
                       <div style={{position: 'absolute', top: '10px', right: '10px', fontSize: '0.8rem', opacity: '0.7'}}>
                         🔗
                       </div>
                     </div>
                   ))}
                 </div>
-                <div style={{textAlign: 'center', marginTop: '2rem', padding: '1rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '10px', border: '1px solid var(--star-gold)'}}>
-                  <p style={{fontSize: '0.9rem', opacity: '0.8'}}>
-                    {lang === 'pt' ? '🔗 Clique nos certificados para ver os documentos originais' :
-                     lang === 'en' ? '🔗 Click on certificates to view original documents' :
-                     '🔗 Haz clic en los certificados para ver los documentos originales'}
-                  </p>
-                </div>
+
               </div>
             </div>
           );
