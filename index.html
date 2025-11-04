@@ -936,13 +936,13 @@
             { name: "Jupyter / Research Tools", level: 90},
           ],
           certs: [
-            { name: "Python for Data Science", org: "Santander Open Academy", date: "28/07/2025", url: "#" },
-            { name: "Google AI & Productivity", org: "Santander Open Academy", date: "11/10/2025", url: "#" },
-            { name: "Advanced Python Programming", org: "Stepik", date: "09/11/2024", url: "#" },
-            { name: "Marketing Analysis & Big Data", org: "Stepik", date: "01/11/2024", url: "#" },
-            { name: "Mathematical Teletraffic Theory", org: "Stepik", date: "28/10/2024", url: "#" },
-            { name: "SQL for Data Analysis", org: "Stepik", date: "02/11/2024", url: "#" },
-            { name: "Web Development Fundamentals", org: "Stepik", date: "01/11/2024", url: "#" },
+            { name: "Python for Data Science", org: "Santander Open Academy", date: "28/07/2025", url: "./certificate/santander-open-academy-python.pdf" },
+            { name: "Google AI & Productivity", org: "Santander Open Academy", date: "11/10/2025", url: "./certificate/santander-open-academy- Inteligencia Artificial y productividad.pdf" },
+            { name: "Advanced Python Programming", org: "Stepik", date: "09/11/2024", url: "./certificate/stepik-certificate-Поколение Python курс для начинающих.pdf" },
+            { name: "Marketing Analysis & Big Data", org: "Stepik", date: "01/11/2024", url: "./certificate/stepik-certificate-Introduction to Marketing Analysis and Big Data.pdf" },
+            { name: "Mathematical Teletraffic Theory", org: "Stepik", date: "28/10/2024", url: "./certificate/stepik-certificate-Mathematical Teletraffic Theory.pdf" },
+            { name: "SQL for Data Analysis", org: "Stepik", date: "02/11/2024", url: "./certificate/stepik-certificate-SQL.pdf" },
+            { name: "Web Development Fundamentals", org: "Stepik", date: "01/11/2024", url: "./certificate/stepik-certificate-Веб-разработка для начинающих.pdf" },
           ],
           certsText: [
             "Python for Data Science — Santander Open Academy — 28/07/2025",
@@ -958,6 +958,7 @@
         function NzitaUniverse() {
           const [currentSection, setCurrentSection] = useState('home');
           const [lang, setLang] = useState('pt');
+          const [showCertificate, setShowCertificate] = useState(null);
           
           const L = locales[lang] || locales.pt;
           
@@ -1060,13 +1061,13 @@
                 <div className="achievement-grid">
                   {data.certs.map((cert, i) => (
                     <div key={i} className="achievement-card" 
-                         onClick={() => cert.url !== '#' ? window.open(cert.url, '_blank') : alert(lang === 'pt' ? 'Certificado em processo de upload' : lang === 'en' ? 'Certificate being uploaded' : 'Certificado en proceso de subida')}
+                         onClick={() => setShowCertificate(cert)}
                          style={{cursor: 'pointer', position: 'relative'}}>
                       <div className="achievement-icon">🏆</div>
                       <h4>{cert.name}</h4>
                       <p>{cert.org} — {cert.date}</p>
                       <div style={{position: 'absolute', top: '10px', right: '10px', fontSize: '0.8rem', opacity: '0.7'}}>
-                        {cert.url !== '#' ? '🔗' : '⏳'}
+                        🔗
                       </div>
                     </div>
                   ))}
@@ -1359,6 +1360,92 @@
               
               {/* Content */}
               {renderCurrentSection()}
+              
+              {/* Certificate Modal */}
+              {showCertificate && (
+                <div style={{
+                  position: 'fixed',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  background: 'rgba(0, 0, 0, 0.9)',
+                  zIndex: 10000,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '20px'
+                }}>
+                  <div style={{
+                    background: 'white',
+                    borderRadius: '15px',
+                    width: '90%',
+                    height: '90%',
+                    maxWidth: '1000px',
+                    position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column'
+                  }}>
+                    <div style={{
+                      padding: '20px',
+                      borderBottom: '1px solid #eee',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      background: 'linear-gradient(135deg, var(--galaxy-blue), var(--nebula-purple))',
+                      color: 'white',
+                      borderRadius: '15px 15px 0 0'
+                    }}>
+                      <div>
+                        <h3 style={{margin: 0, fontSize: '1.2rem'}}>{showCertificate.name}</h3>
+                        <p style={{margin: '5px 0 0 0', opacity: 0.9, fontSize: '0.9rem'}}>{showCertificate.org} • {showCertificate.date}</p>
+                      </div>
+                      <div style={{display: 'flex', gap: '10px'}}>
+                        <button 
+                          onClick={() => window.open(showCertificate.url, '_blank')}
+                          style={{
+                            background: 'rgba(255,255,255,0.2)',
+                            border: 'none',
+                            color: 'white',
+                            padding: '8px 16px',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontSize: '0.9rem'
+                          }}
+                        >
+                          📥 Download
+                        </button>
+                        <button 
+                          onClick={() => setShowCertificate(null)}
+                          style={{
+                            background: 'rgba(255,255,255,0.2)',
+                            border: 'none',
+                            color: 'white',
+                            padding: '8px 16px',
+                            borderRadius: '8px',
+                            cursor: 'pointer',
+                            fontSize: '0.9rem'
+                          }}
+                        >
+                          ✕ Fechar
+                        </button>
+                      </div>
+                    </div>
+                    <div style={{flex: 1, padding: '0'}}>
+                      <iframe 
+                        src={showCertificate.url}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          border: 'none',
+                          borderRadius: '0 0 15px 15px'
+                        }}
+                        title={`Certificado: ${showCertificate.name}`}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           );
         }
