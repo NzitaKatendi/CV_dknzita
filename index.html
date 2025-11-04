@@ -230,6 +230,15 @@
             box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
         }
         
+        .achievement-card[style*="cursor: pointer"]:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(124, 58, 237, 0.4);
+        }
+        
+        .achievement-card[style*="cursor: pointer"]:active {
+            transform: translateY(-5px) scale(0.98);
+        }
+        
         .achievement-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
@@ -927,6 +936,15 @@
             { name: "Jupyter / Research Tools", level: 90},
           ],
           certs: [
+            { name: "Python for Data Science", org: "Santander Open Academy", date: "28/07/2025", url: "#" },
+            { name: "Google AI & Productivity", org: "Santander Open Academy", date: "11/10/2025", url: "#" },
+            { name: "Advanced Python Programming", org: "Stepik", date: "09/11/2024", url: "#" },
+            { name: "Marketing Analysis & Big Data", org: "Stepik", date: "01/11/2024", url: "#" },
+            { name: "Mathematical Teletraffic Theory", org: "Stepik", date: "28/10/2024", url: "#" },
+            { name: "SQL for Data Analysis", org: "Stepik", date: "02/11/2024", url: "#" },
+            { name: "Web Development Fundamentals", org: "Stepik", date: "01/11/2024", url: "#" },
+          ],
+          certsText: [
             "Python for Data Science — Santander Open Academy — 28/07/2025",
             "Google AI & Productivity — Santander Open Academy — 11/10/2025",
             "Advanced Python Programming — Stepik — 09/11/2024",
@@ -1041,12 +1059,24 @@
                 </h2>
                 <div className="achievement-grid">
                   {data.certs.map((cert, i) => (
-                    <div key={i} className="achievement-card">
+                    <div key={i} className="achievement-card" 
+                         onClick={() => cert.url !== '#' ? window.open(cert.url, '_blank') : alert(lang === 'pt' ? 'Certificado em processo de upload' : lang === 'en' ? 'Certificate being uploaded' : 'Certificado en proceso de subida')}
+                         style={{cursor: 'pointer', position: 'relative'}}>
                       <div className="achievement-icon">🏆</div>
-                      <h4>{cert.split(' — ')[0]}</h4>
-                      <p>{cert.split(' — ')[1]} — {cert.split(' — ')[2]}</p>
+                      <h4>{cert.name}</h4>
+                      <p>{cert.org} — {cert.date}</p>
+                      <div style={{position: 'absolute', top: '10px', right: '10px', fontSize: '0.8rem', opacity: '0.7'}}>
+                        {cert.url !== '#' ? '🔗' : '⏳'}
+                      </div>
                     </div>
                   ))}
+                </div>
+                <div style={{textAlign: 'center', marginTop: '2rem', padding: '1rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '10px', border: '1px solid var(--star-gold)'}}>
+                  <p style={{fontSize: '0.9rem', opacity: '0.8'}}>
+                    {lang === 'pt' ? '🔗 Clique nos certificados para ver os documentos originais' :
+                     lang === 'en' ? '🔗 Click on certificates to view original documents' :
+                     '🔗 Haz clic en los certificados para ver los documentos originales'}
+                  </p>
                 </div>
               </div>
             </div>
@@ -1216,7 +1246,7 @@
                     <div className="glass-card" style={{marginBottom: '2rem'}}>
                       <h3 style={{fontSize: '1.3rem', marginBottom: '1.5rem', color: 'var(--star-gold)'}}>🏆 {L.certsTitle}</h3>
                       <div style={{display: 'flex', flexDirection: 'column', gap: '0.8rem'}}>
-                        {data.certs.map((cert, i) => (
+                        {data.certsText.map((cert, i) => (
                           <div key={i} style={{padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', borderLeft: '3px solid var(--nebula-purple)', display: 'flex', alignItems: 'center'}}>
                             <span style={{marginRight: '1rem', fontSize: '1.2rem'}}>🏆</span>
                             <span style={{fontSize: '0.95rem'}}>{cert}</span>
