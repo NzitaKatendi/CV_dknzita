@@ -254,30 +254,178 @@
         }
         
         @media print {
+            @page {
+                margin: 0.5in;
+                size: A4;
+            }
+            
             * {
                 -webkit-print-color-adjust: exact !important;
                 color-adjust: exact !important;
                 print-color-adjust: exact !important;
+                animation: none !important;
+                transition: none !important;
             }
             
             body {
                 background: white !important;
                 font-family: 'Inter', sans-serif !important;
+                color: #111827 !important;
             }
             
-            .glass-card, .section-card {
+            .glass-card {
                 background: white !important;
                 box-shadow: none !important;
-                border: 1px solid #e5e7eb !important;
+                border: none !important;
+                border-radius: 0 !important;
+            }
+            
+            .section-card {
+                background: white !important;
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                padding: 16px 0 !important;
+                margin-bottom: 20px !important;
             }
             
             .header-section {
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-                color: white !important;
+                background: white !important;
+                color: #111827 !important;
+                padding: 20px 0 !important;
+                border-radius: 0 !important;
+                border-bottom: 2px solid #e5e7eb !important;
+                margin-bottom: 24px !important;
+            }
+            
+            .header-section::before {
+                display: none !important;
+            }
+            
+            .contact-info {
+                margin-top: 12px !important;
+            }
+            
+            .contact-item {
+                background: white !important;
+                border: 1px solid #e5e7eb !important;
+                color: #374151 !important;
+                padding: 4px 12px !important;
+                font-size: 0.875rem !important;
+            }
+            
+            .section-title {
+                color: #111827 !important;
+                font-size: 1.25rem !important;
+                margin-bottom: 16px !important;
+                border-bottom: 1px solid #e5e7eb !important;
+                padding-bottom: 8px !important;
+            }
+            
+            .section-title::after {
+                background: #374151 !important;
+                width: 40px !important;
+                height: 2px !important;
+            }
+            
+            .gradient-text {
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                -webkit-text-fill-color: #111827 !important;
+                background-clip: unset !important;
+                color: #111827 !important;
+            }
+            
+            .skill-bar {
+                background: #f3f4f6 !important;
+                border-radius: 4px !important;
+            }
+            
+            .skill-progress {
+                background: #374151 !important;
+                height: 6px !important;
+                border-radius: 4px !important;
+            }
+            
+            .skill-progress::after {
+                display: none !important;
+            }
+            
+            .experience-item {
+                background: white !important;
+                border-left: 3px solid #374151 !important;
+                border-image: none !important;
+                padding: 16px !important;
+                border-radius: 0 !important;
+                margin-bottom: 16px !important;
+            }
+            
+            .experience-item::before {
+                background: #374151 !important;
+                box-shadow: 0 0 0 3px white !important;
+            }
+            
+            .project-card {
+                background: white !important;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 8px !important;
+                padding: 16px !important;
+                margin-bottom: 12px !important;
+            }
+            
+            .project-card::before {
+                background: #374151 !important;
+            }
+            
+            .cert-item {
+                background: white !important;
+                border: 1px solid #e5e7eb !important;
+                border-radius: 4px !important;
+                padding: 8px 12px !important;
+                padding-left: 32px !important;
+                margin-bottom: 6px !important;
+            }
+            
+            .cert-item::before {
+                content: '•' !important;
+                color: #374151 !important;
+                font-size: 1rem !important;
+            }
+            
+            h1 {
+                font-size: 2.25rem !important;
+                color: #111827 !important;
+                margin-bottom: 8px !important;
+            }
+            
+            h2 {
+                font-size: 1.25rem !important;
+                color: #6b7280 !important;
+                margin-bottom: 16px !important;
+            }
+            
+            h3 {
+                font-size: 1.125rem !important;
+                color: #111827 !important;
+            }
+            
+            h4 {
+                font-size: 1rem !important;
+                color: #111827 !important;
+            }
+            
+            .text-blue-500 {
+                color: #374151 !important;
+            }
+            
+            .bg-gray-100 {
+                background: #f3f4f6 !important;
+                color: #374151 !important;
             }
             
             .print\:hidden { display: none !important; }
             .print\:block { display: block !important; }
+            .print\:max-w-full { max-width: 100% !important; }
         }
     </style>
 </head>
