@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume - Diatezilua Nzita</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @page {
+            margin: 0.5in;
+            size: A4;
+        }
+        
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            body {
+                margin: 0 !important;
+                padding: 0 !important;
+                font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif !important;
+            }
+            
+            .print\:max-w-full {
+                max-width: 100% !important;
+            }
+            
+            .print\:hidden {
+                display: none !important;
+            }
+            
+            .print\:hidden * {
+                display: none !important;
+            }
+            
+            .print\:block {
+                display: block !important;
+            }
+            
+            .grid {
+                display: grid !important;
+            }
+            
+            .grid-cols-1 {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+            
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+            
+            .grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
+            
+            .bg-white {
+                background-color: #ffffff !important;
+            }
+            
+            .text-gray-900 {
+                color: #111827 !important;
+            }
+            
+            .text-gray-700 {
+                color: #374151 !important;
+            }
+            
+            .text-gray-600 {
+                color: #4b5563 !important;
+            }
+            
+            .text-gray-500 {
+                color: #6b7280 !important;
+            }
+            
+            .border-gray-300 {
+                border-color: #d1d5db !important;
+            }
+            
+            .bg-gray-200 {
+                background-color: #e5e7eb !important;
+            }
+            
+            .bg-gray-800 {
+                background-color: #1f2937 !important;
+            }
+            
+            .rounded-full {
+                border-radius: 9999px !important;
+            }
+            
+            .h-2 {
+                height: 0.5rem !important;
+            }
+            
+            .w-full {
+                width: 100% !important;
+            }
+            
+            .gap-8 {
+                gap: 2rem !important;
+            }
+            
+            .gap-4 {
+                gap: 1rem !important;
+            }
+            
+            .gap-3 {
+                gap: 0.75rem !important;
+            }
+            
+            .space-y-8 > * + * {
+                margin-top: 2rem !important;
+            }
+            
+            .space-y-6 > * + * {
+                margin-top: 1.5rem !important;
+            }
+            
+            .space-y-4 > * + * {
+                margin-top: 1rem !important;
+            }
+            
+            .space-y-3 > * + * {
+                margin-top: 0.75rem !important;
+            }
+            
+            .space-y-2 > * + * {
+                margin-top: 0.5rem !important;
+            }
+            
+            .space-y-1 > * + * {
+                margin-top: 0.25rem !important;
+            }
+            
+            .border-b-2 {
+                border-bottom-width: 2px !important;
+            }
+            
+            .border-b {
+                border-bottom-width: 1px !important;
+            }
+            
+            .text-4xl {
+                font-size: 2.25rem !important;
+                line-height: 2.5rem !important;
+            }
+            
+            .text-xl {
+                font-size: 1.25rem !important;
+                line-height: 1.75rem !important;
+            }
+            
+            .text-sm {
+                font-size: 0.875rem !important;
+                line-height: 1.25rem !important;
+            }
+            
+            .text-xs {
+                font-size: 0.75rem !important;
+                line-height: 1rem !important;
+            }
+            
+            .font-bold {
+                font-weight: 700 !important;
+            }
+            
+            .font-semibold {
+                font-weight: 600 !important;
+            }
+            
+            .font-medium {
+                font-weight: 500 !important;
+            }
+            
+            .flex {
+                display: flex !important;
+            }
+            
+            .items-center {
+                align-items: center !important;
+            }
+            
+            .items-start {
+                align-items: flex-start !important;
+            }
+            
+            .justify-center {
+                justify-content: center !important;
+            }
+            
+            .justify-between {
+                justify-content: space-between !important;
+            }
+            
+            .flex-wrap {
+                flex-wrap: wrap !important;
+            }
+            
+            .list-disc {
+                list-style-type: disc !important;
+            }
+            
+            .list-inside {
+                list-style-position: inside !important;
+            }
+            
+            .text-center {
+                text-align: center !important;
+            }
+            
+            .leading-relaxed {
+                line-height: 1.625 !important;
+            }
+            
+            .break-all {
+                word-break: break-all !important;
+            }
+            
+            .w-20 {
+                width: 5rem !important;
+            }
+            
+            .h-20 {
+                height: 5rem !important;
+            }
+            
+            .object-contain {
+                object-fit: contain !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { useState } = React;
+
+        const QR = ({ url, size = 110, label }) => {
+          const src = "https://api.qrserver.com/v1/create-qr-code/?size=" +
+            size +
+            "x" +
+            size +
+            "&data=" +
+            encodeURIComponent(url);
+          return (
+            <div className="flex items-center gap-3">
+              <img src={src} alt={"QR " + label} className="w-20 h-20 object-contain" />
+              <div className="text-xs break-all">{label}</div>
+            </div>
+          );
+        };
+
+        const locales = {
+          pt: {
+            title: "Data Scientist | Machine Learning Engineer",
+            contact: "Valência, Espanha",
+            summary: "Matemático e Cientista da Computação com especialização em IA Aplicada. Experiência comprovada em deteção de sinais com ruído usando métodos bayesianos e deep learning. Desenvolvedor Python com foco em pipelines ML e análise de dados. Procuro posição júnior em Data Science para aplicar conhecimentos de investigação em soluções de produção escaláveis.",
+            skillsTitle: "Competências Técnicas",
+            experienceTitle: "Experiência Profissional",
+            projectsTitle: "Projetos de Investigação",
+            educationTitle: "Formação Académica",
+            certsTitle: "Certificações Profissionais",
+            pubsTitle: "Publicações Científicas",
+            languagesTitle: "Idiomas",
+            download: "Descarregar PDF",
+            languages: [
+              { name: "Português (Nativo)", level: 100 },
+              { name: "Russo (Fluente)", level: 90 },
+              { name: "Inglês (Intermédio)", level: 60 },
+              { name: "Espanhol (Intermédio)", level: 75 },
+            ],
+            experience: [
+              {
+                role: "Investigador em Machine Learning",
+                org: "Universidade Europeia de Valência",
+                date: "10/2025 – Presente",
+                bullets: [
+                  "Desenvolvimento de algoritmos de deteção de sinais em ambientes ruidosos usando métodos bayesianos.",
+                  "Implementação de pipelines ML com Python, PyTorch e scikit-learn para processamento de sinais.",
+                  "Análise estatística e visualização de dados complexos com pandas, NumPy e matplotlib.",
+                  "Publicação de resultados em conferência internacional de telecomunicações.",
+                ],
+              },
+              {
+                role: "Desenvolvedor Python / Analista Técnico",
+                org: "Business Center, Moscou, RU",
+                date: "03/2023 – 09/2025",
+                bullets: [
+                  "Automatização de diagnósticos com scripts Python, reduzindo falhas em 40%.",
+                  "Desenvolvimento de dashboards internos com HTML/CSS/JavaScript para análise de dados operacionais.",
+                  "Criação de pipelines ETL para processamento de dados de fornecedores e métricas de performance.",
+                  "Documentação técnica e implementação de processos de controlo de qualidade.",
+                ],
+              },
+              {
+                role: "Líder de Projeto / Coordenador Técnico",
+                org: "Projetos de Construção Estudantil",
+                date: "07/2021 – 11/2021",
+                bullets: [
+                  "Coordenação de equipas multidisciplinares (15+ membros) em projetos de engenharia.",
+                  "Planeamento de tarefas, gestão de recursos e controlo de qualidade em ambiente de alta pressão.",
+                  "Implementação de metodologias ágeis para otimização de processos e cumprimento de prazos.",
+                ],
+              },
+            ],
+            projects: [
+              {
+                title: "Sistema de Deteção Robusta de Sinais com IA (Dissertação de Mestrado)",
+                date: "2025 – 2026",
+                desc: "Desenvolvimento de sistema híbrido combinando inferência bayesiana e deep learning para deteção de sinais em ambientes com ruído extremo. Pipeline completo: pré-processamento (FFT, wavelets), modelos probabilísticos, redes neurais convolucionais. Avaliação rigorosa com métricas precision/recall/F1. Implementação em Python com PyTorch. Publicação em conferência internacional.",
+              },
+              {
+                title: "Framework de Análise Preditiva para Dados Temporais",
+                date: "2024",
+                desc: "Pipeline ETL automatizado com pandas para processamento de séries temporais. Implementação de modelos ARIMA, LSTM e Random Forest para previsão. Dashboard interativo com Plotly. EDA completa e feature engineering. Notebooks Jupyter documentados para reprodutibilidade. Código disponível no GitHub.",
+              },
+              {
+                title: "Sistema de Monitorização Automatizada com Python",
+                date: "2023 – 2024",
+                desc: "Desenvolvimento de sistema de monitorização em tempo real para infraestrutura IT. Scripts Python para coleta e análise de métricas de performance. Implementação de alertas automáticos e relatórios de diagnóstico. Redução de 40% no tempo de resolução de incidentes.",
+              },
+            ],
+            education: [
+              {
+                degree: "Mestrado em Inteligência Artificial Aplicada",
+                inst: "Universidade Europeia de Valência, Espanha",
+                date: "10/2025 – 06/2026 (em curso)",
+                details: "Especialização: Machine Learning, Deep Learning, Processamento de Sinais"
+              },
+              {
+                degree: "Licenciatura em Matemática e Informática",
+                inst: "RUDN (Universidade Russa da Amizade dos Povos), Moscou",
+                date: "09/2021 – 06/2025",
+                details: "Foco: Análise Matemática, Algoritmos, Programação, Estatística"
+              },
+            ],
+            publication: "Deteção de sinais em dados com ruído — Information and Telecommunication Technologies and Mathematical Modeling of High-Tech Systems (08/04/2025)",
+          },
+          en: {
+            title: "Data Scientist | Machine Learning Engineer",
+            contact: "Valencia, Spain",
+            summary: "Mathematics & Computer Science graduate specializing in Applied AI. Proven experience in noisy signal detection using Bayesian methods and deep learning. Python developer focused on ML pipelines and data analysis. Seeking junior Data Science role to apply research expertise in scalable production solutions.",
+            skillsTitle: "Technical Skills",
+            experienceTitle: "Professional Experience",
+            projectsTitle: "Research Projects",
+            educationTitle: "Academic Background",
+            certsTitle: "Professional Certifications",
+            pubsTitle: "Scientific Publications",
+            languagesTitle: "Languages",
+            download: "Download PDF",
+            languages: [
+              { name: "Portuguese (Native)", level: 100 },
+              { name: "Russian (Fluent)", level: 90 },
+              { name: "English (Intermediate)", level: 60 },
+              { name: "Spanish (Intermediate)", level: 75 },
+            ],
+            experience: [
+              {
+                role: "Machine Learning Researcher",
+                org: "European University of Valencia",
+                date: "10/2025 – Present",
+                bullets: [
+                  "Development of signal detection algorithms in noisy environments using Bayesian methods.",
+                  "Implementation of ML pipelines with Python, PyTorch and scikit-learn for signal processing.",
+                  "Statistical analysis and visualization of complex data with pandas, NumPy and matplotlib.",
+                  "Publication of results in international telecommunications conference.",
+                ],
+              },
+              {
+                role: "Python Developer / Technical Analyst",
+                org: "Business Center, Moscow, RU",
+                date: "03/2023 – 09/2025",
+                bullets: [
+                  "Automation of diagnostics with Python scripts, reducing failures by 40%.",
+                  "Development of internal dashboards with HTML/CSS/JavaScript for operational data analysis.",
+                  "Creation of ETL pipelines for supplier data processing and performance metrics.",
+                  "Technical documentation and implementation of quality control processes.",
+                ],
+              },
+              {
+                role: "Project Leader / Technical Coordinator",
+                org: "Student Construction Projects",
+                date: "07/2021 – 11/2021",
+                bullets: [
+                  "Coordination of multidisciplinary teams (15+ members) in engineering projects.",
+                  "Task planning, resource management and quality control in high-pressure environment.",
+                  "Implementation of agile methodologies for process optimization and deadline compliance.",
+                ],
+              },
+            ],
+            projects: [
+              {
+                title: "Robust AI Signal Detection System (Master's Thesis)",
+                date: "2025 – 2026",
+                desc: "Development of hybrid system combining Bayesian inference and deep learning for signal detection in extreme noise environments. Complete pipeline: preprocessing (FFT, wavelets), probabilistic models, convolutional neural networks. Rigorous evaluation with precision/recall/F1 metrics. Python implementation with PyTorch. Publication in international conference.",
+              },
+              {
+                title: "Predictive Analysis Framework for Temporal Data",
+                date: "2024",
+                desc: "Automated ETL pipeline with pandas for time series processing. Implementation of ARIMA, LSTM and Random Forest models for forecasting. Interactive dashboard with Plotly. Complete EDA and feature engineering. Documented Jupyter notebooks for reproducibility. Code available on GitHub.",
+              },
+              {
+                title: "Automated Monitoring System with Python",
+                date: "2023 – 2024",
+                desc: "Development of real-time monitoring system for IT infrastructure. Python scripts for performance metrics collection and analysis. Implementation of automatic alerts and diagnostic reports. 40% reduction in incident resolution time.",
+              },
+            ],
+            education: [
+              {
+                degree: "Master's in Applied Artificial Intelligence",
+                inst: "European University of Valencia, Spain",
+                date: "10/2025 – 06/2026 (ongoing)",
+                details: "Specialization: Machine Learning, Deep Learning, Signal Processing"
+              },
+              {
+                degree: "Bachelor's in Mathematics and Computer Science",
+                inst: "RUDN (Peoples' Friendship University of Russia), Moscow",
+                date: "09/2021 – 06/2025",
+                details: "Focus: Mathematical Analysis, Algorithms, Programming, Statistics"
+              },
+            ],
+            publication: "Signal detection in noisy data — Information and Telecommunication Technologies and Mathematical Modeling of High-Tech Systems (08/04/2025)",
+          },
+          es: {
+            title: "Data Scientist | Machine Learning Engineer",
+            contact: "Valencia, España",
+            summary: "Graduado en Matemáticas e Informática con especialización en IA Aplicada. Experiencia comprobada en detección de señales con ruido usando métodos bayesianos y deep learning. Desarrollador Python enfocado en pipelines ML y análisis de datos. Busco posición junior en Data Science para aplicar experiencia investigadora en soluciones de producción escalables.",
+            skillsTitle: "Competencias Técnicas",
+            experienceTitle: "Experiencia Profesional",
+            projectsTitle: "Proyectos de Investigación",
+            educationTitle: "Formación Académica",
+            certsTitle: "Certificaciones Profesionales",
+            pubsTitle: "Publicaciones Científicas",
+            languagesTitle: "Idiomas",
+            download: "Descargar PDF",
+            languages: [
+              { name: "Portugués (Nativo)", level: 100 },
+              { name: "Ruso (Fluido)", level: 90 },
+              { name: "Inglés (Intermedio)", level: 60 },
+              { name: "Español (Intermedio)", level: 75 },
+            ],
+            experience: [
+              {
+                role: "Investigador en Machine Learning",
+                org: "Universidad Europea de Valencia",
+                date: "10/2025 – Presente",
+                bullets: [
+                  "Desarrollo de algoritmos de detección de señales en entornos ruidosos usando métodos bayesianos.",
+                  "Implementación de pipelines ML con Python, PyTorch y scikit-learn para procesamiento de señales.",
+                  "Análisis estadístico y visualización de datos complejos con pandas, NumPy y matplotlib.",
+                  "Publicación de resultados en conferencia internacional de telecomunicaciones.",
+                ],
+              },
+              {
+                role: "Desarrollador Python / Analista Técnico",
+                org: "Business Center, Moscú, RU",
+                date: "03/2023 – 09/2025",
+                bullets: [
+                  "Automatización de diagnósticos con scripts Python, reduciendo fallos en 40%.",
+                  "Desarrollo de dashboards internos con HTML/CSS/JavaScript para análisis de datos operacionales.",
+                  "Creación de pipelines ETL para procesamiento de datos de proveedores y métricas de rendimiento.",
+                  "Documentación técnica e implementación de procesos de control de calidad.",
+                ],
+              },
+              {
+                role: "Líder de Proyecto / Coordinador Técnico",
+                org: "Proyectos de Construcción Estudiantil",
+                date: "07/2021 – 11/2021",
+                bullets: [
+                  "Coordinación de equipos multidisciplinarios (15+ miembros) en proyectos de ingeniería.",
+                  "Planificación de tareas, gestión de recursos y control de calidad en ambiente de alta presión.",
+                  "Implementación de metodologías ágiles para optimización de procesos y cumplimiento de plazos.",
+                ],
+              },
+            ],
+            projects: [
+              {
+                title: "Sistema de Detección Robusta de Señales con IA (Tesis de Maestría)",
+                date: "2025 – 2026",
+                desc: "Desarrollo de sistema híbrido combinando inferencia bayesiana y deep learning para detección de señales en entornos con ruido extremo. Pipeline completo: preprocesamiento (FFT, wavelets), modelos probabilísticos, redes neuronales convolucionales. Evaluación rigurosa con métricas precision/recall/F1. Implementación en Python con PyTorch. Publicación en conferencia internacional.",
+              },
+              {
+                title: "Framework de Análisis Predictivo para Datos Temporales",
+                date: "2024",
+                desc: "Pipeline ETL automatizado con pandas para procesamiento de series temporales. Implementación de modelos ARIMA, LSTM y Random Forest para predicción. Dashboard interactivo con Plotly. EDA completo y feature engineering. Notebooks Jupyter documentados para reproducibilidad. Código disponible en GitHub.",
+              },
+              {
+                title: "Sistema de Monitorización Automatizada con Python",
+                date: "2023 – 2024",
+                desc: "Desarrollo de sistema de monitorización en tiempo real para infraestructura IT. Scripts Python para recolección y análisis de métricas de rendimiento. Implementación de alertas automáticas y reportes de diagnóstico. Reducción del 40% en tiempo de resolución de incidentes.",
+              },
+            ],
+            education: [
+              {
+                degree: "Maestría en Inteligencia Artificial Aplicada",
+                inst: "Universidad Europea de Valencia, España",
+                date: "10/2025 – 06/2026 (en curso)",
+                details: "Especialización: Machine Learning, Deep Learning, Procesamiento de Señales"
+              },
+              {
+                degree: "Licenciatura en Matemáticas e Informática",
+                inst: "RUDN (Universidad Rusa de la Amistad de los Pueblos), Moscú",
+                date: "09/2021 – 06/2025",
+                details: "Enfoque: Análisis Matemático, Algoritmos, Programación, Estadística"
+              },
+            ],
+            publication: "Detección de señales en datos con ruido — Information and Telecommunication Technologies and Mathematical Modeling of High-Tech Systems (08/04/2025)",
+          },
+        };
+
+        const data = {
+          header: {
+            name: "Diatezilua Nzita",
+            email: "diatezilua.n@gmail.com",
+            phone: "+34 602 012 815",
+            linkedin: "https://www.linkedin.com/in/diatezilua-katendi-nzita-412640210",
+            github: "https://github.com/NzitaKatendi",
+          },
+          skills: [
+            { name: "Python (Data Science)", level: 95 },
+            { name: "Machine Learning", level: 90 },
+            { name: "pandas / NumPy / SciPy", level: 96 },
+            { name: "scikit-learn", level: 87 },
+            { name: "PyTorch / TensorFlow", level: 85 },
+            { name: "SQL / Databases", level: 95 },
+            { name: "Statistical Analysis", level: 95 },
+            { name: "Signal Processing", level: 90 },
+            { name: "Bayesian Methods", level: 95 },
+            { name: "Data Visualization", level: 96 },
+            { name: "Git / Version Control", level: 95 },
+            { name: "Jupyter / Research Tools", level: 90},
+          ],
+          certs: [
+            "Python for Data Science — Santander Open Academy — 28/07/2025",
+            "Google AI & Productivity — Santander Open Academy — 11/10/2025",
+            "Advanced Python Programming — Stepik — 09/11/2024",
+            "Marketing Analysis & Big Data — Stepik — 01/11/2024",
+            "Mathematical Teletraffic Theory — Stepik — 28/10/2024",
+            "SQL for Data Analysis — Stepik — 02/11/2024",
+            "Web Development Fundamentals — Stepik — 01/11/2024",
+          ],
+        };
+
+        function ResumeApp() {
+          const [lang, setLang] = useState("pt");
+
+          const L = locales[lang] || locales.pt;
+
+          return (
+            <div className="p-6 bg-white text-gray-900 min-h-screen font-sans">
+              <div className="max-w-4xl mx-auto print:max-w-full">
+                <div className="flex items-center justify-between mb-6 print:hidden">
+                  <div className="flex gap-3 items-center">
+                    <button
+                      onClick={() => setLang("pt")}
+                      className={`px-3 py-1 rounded ${lang === "pt" ? "bg-gray-800 text-white" : "border"}`}
+                    >
+                      PT
+                    </button>
+                    <button
+                      onClick={() => setLang("en")}
+                      className={`px-3 py-1 rounded ${lang === "en" ? "bg-gray-800 text-white" : "border"}`}
+                    >
+                      EN
+                    </button>
+                    <button
+                      onClick={() => setLang("es")}
+                      className={`px-3 py-1 rounded ${lang === "es" ? "bg-gray-800 text-white" : "border"}`}
+                    >
+                      ES
+                    </button>
+                  </div>
+                  <button
+                    onClick={() => window.print()}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                  >
+                    {L.download}
+                  </button>
+                </div>
+
+                <header className="text-center mb-8 border-b-2 border-gray-300 pb-6">
+                  <h1 className="text-4xl font-bold mb-2">{data.header.name}</h1>
+                  <h2 className="text-xl text-gray-600 mb-4">{L.title}</h2>
+                  <div className="flex flex-wrap justify-center gap-4 text-sm">
+                    <span>{data.header.email}</span>
+                    <span>{data.header.phone}</span>
+                    <span>{L.contact}</span>
+                  </div>
+                </header>
+
+                <section className="mb-8">
+                  <p className="text-gray-700 leading-relaxed">{L.summary}</p>
+                </section>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <section>
+                    <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.skillsTitle}</h3>
+                    <div className="space-y-3">
+                      {data.skills.map((skill, i) => (
+                        <div key={i}>
+                          <div className="flex justify-between mb-1">
+                            <span className="text-sm font-medium">{skill.name}</span>
+                            <span className="text-sm text-gray-600">{skill.level}%</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div 
+                              className="bg-gray-800 h-2 rounded-full" 
+                              style={{width: `${skill.level}%`}}
+                            ></div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+
+                  <section>
+                    <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.languagesTitle}</h3>
+                    <div className="space-y-3">
+                      {L.languages.map((language, i) => (
+                        <div key={i}>
+                          <div className="flex justify-between mb-1">
+                            <span className="text-sm font-medium">{language.name}</span>
+                            <span className="text-sm text-gray-600">{language.level}%</span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div 
+                              className="bg-gray-800 h-2 rounded-full" 
+                              style={{width: `${language.level}%`}}
+                            ></div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                </div>
+
+                <section className="mb-8">
+                  <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.experienceTitle}</h3>
+                  <div className="space-y-6">
+                    {L.experience.map((exp, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h4 className="font-semibold">{exp.role}</h4>
+                            <p className="text-gray-600">{exp.org}</p>
+                          </div>
+                          <span className="text-sm text-gray-500">{exp.date}</span>
+                        </div>
+                        <ul className="list-disc list-inside space-y-1 text-sm text-gray-700">
+                          {exp.bullets.map((bullet, j) => (
+                            <li key={j}>{bullet}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.projectsTitle}</h3>
+                  <div className="space-y-4">
+                    {L.projects.map((project, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between items-start mb-2">
+                          <h4 className="font-semibold">{project.title}</h4>
+                          <span className="text-sm text-gray-500">{project.date}</span>
+                        </div>
+                        <p className="text-sm text-gray-700">{project.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.educationTitle}</h3>
+                  <div className="space-y-4">
+                    {L.education.map((edu, i) => (
+                      <div key={i}>
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h4 className="font-semibold">{edu.degree}</h4>
+                            <p className="text-gray-600">{edu.inst}</p>
+                            {edu.details && <p className="text-sm text-gray-500">{edu.details}</p>}
+                          </div>
+                          <span className="text-sm text-gray-500">{edu.date}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.certsTitle}</h3>
+                  <ul className="space-y-2 text-sm">
+                    {data.certs.map((cert, i) => (
+                      <li key={i} className="text-gray-700">{cert}</li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section className="mb-8">
+                  <h3 className="text-xl font-bold mb-4 border-b border-gray-300 pb-2">{L.pubsTitle}</h3>
+                  <p className="text-sm text-gray-700">{L.publication}</p>
+                </section>
+
+                <section className="print:block hidden">
+                  <div className="grid grid-cols-2 gap-4 mt-8">
+                    <QR url={data.header.linkedin} label="LinkedIn" />
+                    <QR url={data.header.github} label="GitHub" />
+                  </div>
+                </section>
+              </div>
+            </div>
+          );
+        }
+
+        ReactDOM.render(<ResumeApp />, document.getElementById('root'));
+    </script>
+</body>
+</html>
