@@ -658,7 +658,7 @@
         const locales = {
           pt: {
             title: "Data Scientist | Machine Learning Engineer",
-            contact: "Valência, Espanha",
+            contact: "Espanha",
             summary: "Matemático e Cientista da Computação com especialização em IA Aplicada. Experiência comprovada em deteção de sinais com ruído usando métodos bayesianos e deep learning. Desenvolvedor Python com foco em pipelines ML e análise de dados. Procuro posição júnior em Data Science para aplicar conhecimentos de investigação em soluções de produção escaláveis.",
             skillsTitle: "Competências Técnicas",
             experienceTitle: "Experiência Profissional",
@@ -743,7 +743,7 @@
           },
           en: {
             title: "Data Scientist | Machine Learning Engineer",
-            contact: "Valencia, Spain",
+            contact: "Spain",
             summary: "Mathematics & Computer Science graduate specializing in Applied AI. Proven experience in noisy signal detection using Bayesian methods and deep learning. Python developer focused on ML pipelines and data analysis. Seeking junior Data Science role to apply research expertise in scalable production solutions.",
             skillsTitle: "Technical Skills",
             experienceTitle: "Professional Experience",
@@ -828,7 +828,7 @@
           },
           es: {
             title: "Data Scientist | Machine Learning Engineer",
-            contact: "Valencia, España",
+            contact: "España",
             summary: "Graduado en Matemáticas e Informática con especialización en IA Aplicada. Experiencia comprobada en detección de señales con ruido usando métodos bayesianos y deep learning. Desarrollador Python enfocado en pipelines ML y análisis de datos. Busco posición junior en Data Science para aplicar experiencia investigadora en soluciones de producción escalables.",
             skillsTitle: "Competencias Técnicas",
             experienceTitle: "Experiencia Profesional",
@@ -920,6 +920,7 @@
             phone: "+34 602 012 815",
             linkedin: "https://www.linkedin.com/in/diatezilua-katendi-nzita-412640210",
             github: "https://github.com/NzitaKatendi",
+            facebook: "https://www.facebook.com/joaokatendi.nerckie",
           },
           skills: [
             { name: "Python (Data Science)", level: 95 },
@@ -1138,11 +1139,11 @@
                 </h2>
                 
                 {/* Botões de controle */}
-                <div style={{display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '2rem'}}>
+                {/* <div style={{display: 'flex', justifyContent: 'center', gap: '20px', marginBottom: '2rem'}}>
                   <button className="cosmic-btn" onClick={() => window.print()}>
                     📄 {L.download}
                   </button>
-                </div>
+                </div> */}
                 
                 {/* CV Content */}
                 <div className="glass-card">
@@ -1151,8 +1152,8 @@
                     <h2 style={{fontSize: '1.2rem', opacity: '0.9', marginBottom: '1rem'}}>{L.title}</h2>
                     <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px'}}>
                       <span>📧 {data.header.email}</span>
-                      <span>📱 {data.header.phone}</span>
-                      <span>📍 {L.contact}</span>
+                      {/* <span>📱 {data.header.phone}</span> */}
+                      {/* <span>📍 {L.contact}</span> */}
                     </div>
                   </header>
                   
@@ -1276,6 +1277,7 @@
                       <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', justifyItems: 'center'}}>
                         <QR url={data.header.linkedin} label="LinkedIn" />
                         <QR url={data.header.github} label="GitHub" />
+                        <QR url={data.header.facebook} label="Facebook" />
                       </div>
                     </div>
                   </div>
@@ -1308,11 +1310,11 @@
                       <h4>Email</h4>
                       <p>{data.header.email}</p>
                     </div>
-                    <div className="achievement-card">
+                    {/* <div className="achievement-card">
                       <div className="achievement-icon">📱</div>
                       <h4>Phone</h4>
                       <p>{data.header.phone}</p>
-                    </div>
+                    </div> */}
                     <div className="achievement-card">
                       <div className="achievement-icon">💼</div>
                       <h4>LinkedIn</h4>
@@ -1322,6 +1324,11 @@
                       <div className="achievement-icon">💻</div>
                       <h4>GitHub</h4>
                       <p><a href={data.header.github} target="_blank" style={{color: 'var(--star-gold)'}}>Ver Projetos</a></p>
+                    </div>
+                    <div className="achievement-card">
+                      <div className="achievement-icon">📘</div>
+                      <h4>Facebook</h4>
+                      <p><a href={data.header.facebook} target="_blank" style={{color: 'var(--star-gold)'}}>Conectar</a></p>
                     </div>
                   </div>
                 </div>
